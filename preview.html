@@ -213,6 +213,18 @@
       font-size: 14px;
     }
 
+    .timeline-item p + .timeline-alert {
+      margin-top: 8px;
+    }
+
+    .timeline-alert {
+      display: inline-block;
+      color: #ea580c;
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.6;
+    }
+
     .day-block + .day-block {
       margin-top: 14px;
     }
@@ -281,8 +293,60 @@
       gap: 10px;
     }
 
+    .lodging-grid {
+      display: grid;
+      gap: 10px;
+    }
+
     .manifest-card {
       background: #ffffff;
+    }
+
+    .lodging-card {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: linear-gradient(180deg, #ffffff 0%, #f7fbfa 100%);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .lodging-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .lodging-no {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 42px;
+      min-height: 30px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--accent-strong);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .lodging-count {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .lodging-card h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .lodging-meta {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
     }
 
     .manifest-card.bus-1 {
@@ -413,6 +477,10 @@
         grid-template-columns: 1fr 1fr;
       }
 
+      .lodging-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
       .manifest-card.vanguard {
         grid-column: 1 / -1;
       }
@@ -447,7 +515,7 @@
       <h1>KRIHS 행정부서 워크숍</h1>
       <p class="hero-copy">일정, 연락처, 차량 탑승 명단과 주요 장소를 모바일에서 빠르게 확인할 수 있도록 정리한 안내 페이지입니다.</p>
       <div class="stats">
-        <a class="stat-link" href="#schedule-detail">
+        <a class="stat-link" href="#lodging-title">
           <div class="stat">
             <b>숙소</b>
             <span>방배정 현황</span>
@@ -500,6 +568,7 @@
             <span class="time">09:30</span>
             <h3>출발</h3>
             <p>임차버스 2대</p>
+            <div class="timeline-alert">9시 15분까지 버스 탑승</div>
           </li>
           <li class="timeline-item">
             <span class="time">09:30-12:00</span>
@@ -510,6 +579,9 @@
             <span class="time">12:00-13:00</span>
             <h3>점심식사</h3>
             <p>담양 옥빈관 · 떡갈비, 보리굴비</p>
+            <div class="map-links">
+              <a class="map-btn" href="https://search.naver.com/search.naver?query=%EC%98%A5%EB%B9%88%EA%B4%80%20%EC%A3%BD%EB%85%B9%EC%9B%90%EA%B5%AD%EC%88%98%EA%B1%B0%EB%A6%AC%EB%B3%B8%EC%A0%90%20%EC%A0%84%EB%82%A8%20%EB%8B%B4%EC%96%91%EA%B5%B0%20%EB%8B%B4%EC%96%91%EC%9D%8D%20%EC%A3%BD%EB%85%B9%EC%9B%90%EB%A1%9C%2097" target="_blank" rel="noopener noreferrer">담양 옥빈관 네이버지도</a>
+            </div>
           </li>
           <li class="timeline-item">
             <span class="time">13:00-13:15</span>
@@ -520,6 +592,9 @@
             <span class="time">13:15-15:30</span>
             <h3>담양 죽녹원 탐방</h3>
             <p>입구 단체사진 · 문화해설사 설명 30분</p>
+            <div class="map-links">
+              <a class="map-btn" href="https://search.naver.com/search.naver?query=%EB%8B%B4%EC%96%91%20%EC%A3%BD%EB%85%B9%EC%9B%90" target="_blank" rel="noopener noreferrer">담양 죽녹원 네이버지도</a>
+            </div>
           </li>
           <li class="timeline-item">
             <span class="time">15:30-17:00</span>
@@ -530,6 +605,9 @@
             <span class="time">17:00-17:30</span>
             <h3>숙소 배정</h3>
             <p>홀리데이인 광주 호텔 · 2인 1실</p>
+            <div class="map-links">
+              <a class="map-btn" href="https://search.naver.com/search.naver?query=%ED%99%80%EB%A6%AC%EB%8D%B0%EC%9D%B4%EC%9D%B8%20%EA%B4%91%EC%A3%BC%20%ED%98%B8%ED%85%94" target="_blank" rel="noopener noreferrer">홀리데이인 광주 호텔 네이버지도</a>
+            </div>
           </li>
           <li class="timeline-item">
             <span class="time">17:30-18:00</span>
@@ -540,21 +618,33 @@
             <span class="time">18:00-20:00</span>
             <h3>저녁식사</h3>
             <p>미식가(이모카세)</p>
+            <div class="map-links">
+              <a class="map-btn" href="https://search.naver.com/search.naver?query=%EB%AF%B8%EC%8B%9D%EA%B0%80%20%EC%9D%B4%EB%AA%A8%EC%B9%B4%EC%84%B8%20%EC%83%81%EB%AC%B4%EB%B3%B8%EC%A0%90%20%EA%B4%91%EC%A3%BC%20%EC%84%9C%EA%B5%AC%20%EC%B9%98%ED%8F%89%EB%8F%99%20279-7" target="_blank" rel="noopener noreferrer">이모카세 네이버지도</a>
+            </div>
           </li>
           <li class="timeline-item">
             <span class="time">20:00-20:30</span>
             <h3>2차 장소 이동</h3>
             <p>버스 이동</p>
+            <div class="map-links">
+              <a class="map-btn" href="https://way-m.map.naver.com/quick-path/126.8513341,35.1485955,%EB%AF%B8%EC%8B%9D%EA%B0%80%20%EC%9D%B4%EB%AA%A8%EC%B9%B4%EC%84%B8%20%EC%83%81%EB%AC%B4%EB%B3%B8%EC%A0%90,,ADDRESS_POI/126.8449650,35.1464071,%EC%9B%90%EC%83%B7%ED%98%B8%ED%94%84,,ADDRESS_POI/-/walk/0" target="_blank" rel="noopener noreferrer">이모카세 → 원샷호프 도보 길찾기</a>
+            </div>
           </li>
           <li class="timeline-item">
             <span class="time">20:30-22:00</span>
             <h3>맥주 및 간단한 안주</h3>
             <p>원샷호프</p>
+            <div class="map-links">
+              <a class="map-btn" href="https://search.naver.com/search.naver?query=%EC%9B%90%EC%83%B7%ED%98%B8%ED%94%84%20%EA%B4%91%EC%A3%BC%20%EC%84%9C%EA%B5%AC%20%EC%B9%98%ED%8F%89%EB%8F%99%201306-16" target="_blank" rel="noopener noreferrer">원샷호프 네이버지도</a>
+            </div>
           </li>
           <li class="timeline-item">
             <span class="time">22:00~</span>
             <h3>숙소 복귀 및 취침</h3>
             <p>도보 이동</p>
+            <div class="map-links">
+              <a class="map-btn" href="https://way-m.map.naver.com/quick-path/126.8449650,35.1464071,%EC%9B%90%EC%83%B7%ED%98%B8%ED%94%84,,ADDRESS_POI/126.8363130,35.1549710,%ED%99%80%EB%A6%AC%EB%8D%B0%EC%9D%B4%20%EC%9D%B8%20%EA%B4%91%EC%A3%BC,,ADDRESS_POI/-/walk/0" target="_blank" rel="noopener noreferrer">원샷호프 → 홀리데이 인 광주 도보 길찾기</a>
+            </div>
           </li>
         </ul>
       </div>
@@ -581,6 +671,9 @@
             <span class="time">10:00-11:30</span>
             <h3>양림역사문화마을 탐방</h3>
             <p>문화해설사 동행</p>
+            <div class="map-links">
+              <a class="map-btn" href="https://search.naver.com/search.naver?query=%EC%96%91%EB%A6%BC%EC%97%AD%EC%82%AC%EB%AC%B8%ED%99%94%EB%A7%88%EC%9D%84%20%EA%B4%91%EC%A3%BC" target="_blank" rel="noopener noreferrer">양림역사문화마을 네이버지도</a>
+            </div>
           </li>
           <li class="timeline-item">
             <span class="time">11:30-12:00</span>
@@ -591,6 +684,9 @@
             <span class="time">12:00-13:00</span>
             <h3>점심식사</h3>
             <p>진식당 · 애호박찌개 &amp; 생선구이</p>
+            <div class="map-links">
+              <a class="map-btn" href="https://search.naver.com/search.naver?query=%EC%A7%84%EC%8B%9D%EB%8B%B9%20%EA%B4%91%EC%A3%BC%20%EB%B6%81%EA%B5%AC%20%EC%8B%A0%EC%95%88%EB%8F%99%20117-6" target="_blank" rel="noopener noreferrer">진식당 네이버지도</a>
+            </div>
           </li>
           <li class="timeline-item">
             <span class="time">13:00-13:15</span>
@@ -601,6 +697,9 @@
             <span class="time">13:15-15:00</span>
             <h3>아시아문화전당 및 지역 탐방</h3>
             <p>자유여행 · 단체사진</p>
+            <div class="map-links">
+              <a class="map-btn" href="https://search.naver.com/search.naver?query=%EA%B5%AD%EB%A6%BD%EC%95%84%EC%8B%9C%EC%95%84%EB%AC%B8%ED%99%94%EC%A0%84%EB%8B%B9%20%EA%B4%91%EC%A3%BC" target="_blank" rel="noopener noreferrer">국립아시아문화전당 네이버지도</a>
+            </div>
           </li>
           <li class="timeline-item">
             <span class="time">15:00-17:30</span>
@@ -635,9 +734,9 @@
         </li>
         <li class="contact-card">
           <small>2호차 조장 / 부조장</small>
-          <div class="contact-name">최인호 / 김수진</div>
+          <div class="contact-name">금희종 / 김수진</div>
           <div class="tel-links">
-            <a class="tel" href="tel:01071235273">최인호 010-7123-5273</a>
+            <a class="tel" href="tel:01048805170">금희종 010-4880-5170</a>
             <a class="tel" href="tel:01092054083">김수진 010-9205-4083</a>
           </div>
         </li>
@@ -691,6 +790,146 @@
           <div class="chip-list">
             <span class="chip">이성식</span><span class="chip">송정현</span><span class="chip">구민상</span><span class="chip">이동훈</span><span class="chip">이새별</span><span class="chip">송신헌</span>
           </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="lodging-title">
+      <div class="section-head">
+        <span class="section-kicker">Lodging</span>
+        <h2 class="section-title" id="lodging-title">숙소 배정리스트</h2>
+        <p class="section-sub">첨부된 숙소 배정표를 기준으로 객실별 배정 인원을 카드 형태로 정리했습니다.</p>
+      </div>
+      <div class="lodging-grid">
+        <article class="lodging-card">
+          <div class="lodging-top"><span class="lodging-no">No. 1</span><span class="lodging-count">1인실</span></div>
+          <h3>김명수</h3>
+          <div class="lodging-meta">국토연구원 · 원장직무대행 · 남</div>
+        </article>
+        <article class="lodging-card">
+          <div class="lodging-top"><span class="lodging-no">No. 2</span><span class="lodging-count">1인실</span></div>
+          <h3>고용석</h3>
+          <div class="lodging-meta">국토연구원 · 기획조정실장 · 남</div>
+        </article>
+        <article class="lodging-card">
+          <div class="lodging-top"><span class="lodging-no">No. 3</span><span class="lodging-count">1인실</span></div>
+          <h3>이강식</h3>
+          <div class="lodging-meta">국토연구원 · 행정실장 · 남</div>
+        </article>
+        <article class="lodging-card">
+          <div class="lodging-top"><span class="lodging-no">No. 4</span><span class="lodging-count">2인실</span></div>
+          <h3>김시연 · 유지은</h3>
+          <div class="lodging-meta">국토연구원 · 실원 · 여</div>
+        </article>
+        <article class="lodging-card">
+          <div class="lodging-top"><span class="lodging-no">No. 5</span><span class="lodging-count">2인실</span></div>
+          <h3>정현경 · 김수진</h3>
+          <div class="lodging-meta">국토연구원 · 실원 · 여</div>
+        </article>
+        <article class="lodging-card">
+          <div class="lodging-top"><span class="lodging-no">No. 6</span><span class="lodging-count">2인실</span></div>
+          <h3>최민선 · 김하영</h3>
+          <div class="lodging-meta">국토연구원 · 실원 · 여</div>
+        </article>
+        <article class="lodging-card">
+          <div class="lodging-top"><span class="lodging-no">No. 7</span><span class="lodging-count">2인실</span></div>
+          <h3>이은혜 · 김수인</h3>
+          <div class="lodging-meta">국토연구원 · 실원 · 여</div>
+        </article>
+        <article class="lodging-card">
+          <div class="lodging-top"><span class="lodging-no">No. 8</span><span class="lodging-count">2인실</span></div>
+          <h3>이새별 · 이유진</h3>
+          <div class="lodging-meta">국토연구원 · 실원 · 여</div>
+        </article>
+        <article class="lodging-card">
+          <div class="lodging-top"><span class="lodging-no">No. 9</span><span class="lodging-count">2인실</span></div>
+          <h3>김정금 · 이매화</h3>
+          <div class="lodging-meta">국토연구원 · 실원 · 여</div>
+        </article>
+        <article class="lodging-card">
+          <div class="lodging-top"><span class="lodging-no">No. 10</span><span class="lodging-count">2인실</span></div>
+          <h3>정삼숙 · 이복례</h3>
+          <div class="lodging-meta">국토연구원 · 실원 · 여</div>
+        </article>
+        <article class="lodging-card">
+          <div class="lodging-top"><span class="lodging-no">No. 11</span><span class="lodging-count">2인실</span></div>
+          <h3>서수경 · 김연주</h3>
+          <div class="lodging-meta">국토연구원 · 실원 · 여</div>
+        </article>
+        <article class="lodging-card">
+          <div class="lodging-top"><span class="lodging-no">No. 12</span><span class="lodging-count">1인실</span></div>
+          <h3>이두남</h3>
+          <div class="lodging-meta">국토연구원 · 실원 · 여</div>
+        </article>
+        <article class="lodging-card">
+          <div class="lodging-top"><span class="lodging-no">No. 13</span><span class="lodging-count">2인실</span></div>
+          <h3>김상규 · 금희종</h3>
+          <div class="lodging-meta">국토연구원 · 실원 · 남</div>
+        </article>
+        <article class="lodging-card">
+          <div class="lodging-top"><span class="lodging-no">No. 14</span><span class="lodging-count">2인실</span></div>
+          <h3>박동신 · 허용</h3>
+          <div class="lodging-meta">국토연구원 · 실원 · 남</div>
+        </article>
+        <article class="lodging-card">
+          <div class="lodging-top"><span class="lodging-no">No. 15</span><span class="lodging-count">2인실</span></div>
+          <h3>이호창 · 신한별</h3>
+          <div class="lodging-meta">국토연구원 · 실원 · 남</div>
+        </article>
+        <article class="lodging-card">
+          <div class="lodging-top"><span class="lodging-no">No. 16</span><span class="lodging-count">2인실</span></div>
+          <h3>김상근 · 강태진</h3>
+          <div class="lodging-meta">국토연구원 · 실원 · 남</div>
+        </article>
+        <article class="lodging-card">
+          <div class="lodging-top"><span class="lodging-no">No. 17</span><span class="lodging-count">2인실</span></div>
+          <h3>이동훈 · 최인호</h3>
+          <div class="lodging-meta">국토연구원 · 실원 · 남</div>
+        </article>
+        <article class="lodging-card">
+          <div class="lodging-top"><span class="lodging-no">No. 18</span><span class="lodging-count">2인실</span></div>
+          <h3>이성식 · 송정현</h3>
+          <div class="lodging-meta">국토연구원 · 실원 · 남</div>
+        </article>
+        <article class="lodging-card">
+          <div class="lodging-top"><span class="lodging-no">No. 19</span><span class="lodging-count">2인실</span></div>
+          <h3>구민상 · 윤정근</h3>
+          <div class="lodging-meta">국토연구원 · 실원 · 남</div>
+        </article>
+        <article class="lodging-card">
+          <div class="lodging-top"><span class="lodging-no">No. 20</span><span class="lodging-count">2인실</span></div>
+          <h3>백지욱 · 임지수</h3>
+          <div class="lodging-meta">국토연구원 · 실원 · 남</div>
+        </article>
+        <article class="lodging-card">
+          <div class="lodging-top"><span class="lodging-no">No. 21</span><span class="lodging-count">2인실</span></div>
+          <h3>김유진 · 최현준</h3>
+          <div class="lodging-meta">국토연구원 · 실원 · 남</div>
+        </article>
+        <article class="lodging-card">
+          <div class="lodging-top"><span class="lodging-no">No. 22</span><span class="lodging-count">1인실</span></div>
+          <h3>나광연</h3>
+          <div class="lodging-meta">국토연구원 · 실원 · 남</div>
+        </article>
+        <article class="lodging-card">
+          <div class="lodging-top"><span class="lodging-no">No. 23</span><span class="lodging-count">2인실</span></div>
+          <h3>김지형 · 송신헌</h3>
+          <div class="lodging-meta">국토연구원 · 실원 · 남</div>
+        </article>
+        <article class="lodging-card">
+          <div class="lodging-top"><span class="lodging-no">No. 24</span><span class="lodging-count">2인실</span></div>
+          <h3>심규조 · 이태산</h3>
+          <div class="lodging-meta">국토연구원 · 실원 · 남</div>
+        </article>
+        <article class="lodging-card">
+          <div class="lodging-top"><span class="lodging-no">No. 25</span><span class="lodging-count">2인실</span></div>
+          <h3>정상민 · 유정준</h3>
+          <div class="lodging-meta">국토연구원 · 실원 · 남</div>
+        </article>
+        <article class="lodging-card">
+          <div class="lodging-top"><span class="lodging-no">No. 26</span><span class="lodging-count">2인실</span></div>
+          <h3>강승현 · 김기훈</h3>
+          <div class="lodging-meta">국토연구원 · 실원 · 남</div>
         </article>
       </div>
     </section>
@@ -760,7 +999,7 @@
     <div class="sticky-actions">
       <div class="call-bar">
         <a class="call-btn" href="tel:01037934808">1호차 조장 연결</a>
-        <a class="call-btn alt" href="tel:01071235273">2호차 조장 연결</a>
+        <a class="call-btn alt" href="tel:01048805170">2호차 조장 연결</a>
       </div>
     </div>
 
